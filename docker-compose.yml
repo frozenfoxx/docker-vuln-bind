@@ -1,0 +1,5 @@
+bind:
+  image: frozenfoxx/docker-vuln-bind
+  ports:
+    - "53:53"
+  restart: always
