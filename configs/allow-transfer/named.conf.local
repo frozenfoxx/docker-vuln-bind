@@ -1,0 +1,41 @@
+//
+// Do any local configuration here
+//
+
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+// STANDARD ZONES
+include "/etc/bind/named.conf.default-zones";
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+include "/etc/bind/named.conf.rfc1918";
+
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+#######################################
+# REVERSE 'PTR' RECORDS               #
+#######################################
+zone "168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/dynamic/168.192.conf";
+    allow-update { none; };
+    allow-transfer { any; };
+    allow-query { any; };
+};
+
+
+#######################################
+# FORWARD 'A' RECORDS                 #
+#######################################
+zone "busted.io" {
+    type master;
+    file "/etc/bind/dynamic/busted.io.conf";
+    allow-update { none; };
+    allow-transfer { any; };
+    allow-query { any; };
+};
+
