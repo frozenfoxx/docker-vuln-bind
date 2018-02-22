@@ -6,6 +6,7 @@ LABEL maintainer="FrozenFOXX <frozenfoxx@churchoffoxx.net>"
 
 # Variables
 ENV BIND_KEYS_SRC="https://ftp.isc.org/isc/bind9/keys/9.11/bind.keys.v9_11"
+ENV CONFIG="default"
 
 # Install/update packages
 RUN apk -U upgrade && \
@@ -14,6 +15,8 @@ RUN apk -U upgrade && \
 # Set up bind directories, get latest bind.keys
 RUN mkdir -m 0770 -p /etc/bind && \
     chown -R root:named /etc/bind && \
+    mkdir -m 0770 -p /src/configs && \
+    chown -R root:named /src/configs && \
     mkdir -m 0770 -p /var/bind && \
     chown -R root:named /var/cache
 
@@ -22,7 +25,7 @@ RUN rndc-confgen -a -r /dev/urandom
 
 # Add scripts
 COPY bin/* /usr/local/bin/
-COPY defaults/* /etc/bind/
+COPY configs/* /src/configs/
 
 # Set exports and data volumes
 EXPOSE  53 53/udp
