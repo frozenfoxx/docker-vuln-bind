@@ -10,7 +10,8 @@ ENV CONFIG="default"
 
 # Install/update packages
 RUN apk -U upgrade && \
-    apk add bind
+    apk add bind \
+      openssl
 
 # Set up bind directories, get latest bind.keys
 RUN mkdir -m 0770 -p /etc/bind && \
@@ -23,9 +24,9 @@ RUN mkdir -m 0770 -p /etc/bind && \
 RUN wget -q -O /etc/bind/bind.keys ${BIND_KEYS_SRC}
 RUN rndc-confgen -a -r /dev/urandom
 
-# Add scripts
+# Add scripts and configs
 COPY bin/* /usr/local/bin/
-COPY configs/* /src/configs/
+COPY configs/ /src/configs/
 
 # Set exports and data volumes
 EXPOSE  53 53/udp
