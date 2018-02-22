@@ -3,3 +3,5 @@ bind:
   ports:
     - "53:53"
   restart: always
+  environment:
+    - CONFIG=default
