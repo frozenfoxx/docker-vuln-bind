@@ -5,7 +5,7 @@ Docker Hub: [https://hub.docker.com/r/frozenfoxx/docker-vuln-bind/](https://hub.
 
 # How to Build
 ```
-git clone git@github.com:frozenfoxx/docker-vuln-bind.git
+git clone git@gitlab.com:frozenfoxx/docker-vuln-bind.git
 cd docker-vuln-bind
 docker build .
 ```
