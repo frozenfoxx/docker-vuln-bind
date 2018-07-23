@@ -29,7 +29,7 @@ docker run -it --rm -p 53:53 --name=bind_server -e CONFIG=allowtransfer frozenfo
 To create a new custom configuration perform the following:
 * create a new directory under `configs/`
 * load configuration files under the new directory
-* `docker build . -t frozenfoxx/docker-vuln-bind:custom`
+* `docker build . -t frozenfoxx/vuln-bind:custom`
 * `docker run -it --rm -p 53:53 --name=custom_server -e CONFIG=custom_config_dir frozenfoxx/vuln-bind:custom`
 
 # Available Configs
