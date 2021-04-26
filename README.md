@@ -1,4 +1,7 @@
 # docker-vuln-bind
+
+[![Build Status](https://cloud.drone.io/api/badges/frozenfoxx/docker-vuln-bind/status.svg?ref=refs/heads/main)](https://cloud.drone.io/frozenfoxx/docker-vuln-bind)
+
 A vulnerable Docker container for Bind.
 
 Docker Hub: [https://hub.docker.com/r/frozenfoxx/vuln-bind/](https://hub.docker.com/r/frozenfoxx/vuln-bind/)
